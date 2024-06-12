@@ -1,58 +1,55 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import AboutMe from "./views/AboutMe";
 import Root from "./Root";
 import Work from "./views/Work";
-import Contact from "./views/Contact";
 import Home from "./views/Home";
+import Education from "./views/Education";
+import Projects from "./views/Projects";
 
-export const routes = [
+export const views = [
     {
         title: "Home",
         path: "/",
         element: <Home />,
-        visible: false,
+        sidebar: false,
     },
     {
         title: "About Me",
         path: "/me",
         element: <AboutMe />,
-        visible: true,
+        sidebar: true,
     },
     {
-        title: "Work",
-        path: "/work",
+        title: "Experience",
+        path: "/experience",
         element: <Work />,
-        visible: true,
+        sidebar: true,
     },
     {
-        title: "Contact",
-        path: "/contact",
-        element: <Contact />,
-        visible: true,
+        title: "Projects",
+        path: "/projects",
+        element: <Projects />,
+        sidebar: true,
+    },
+    {
+        title: "Education",
+        path: "/education",
+        element: <Education />,
+        sidebar: true,
     },
 ];
 
-const getRouteObject = (): RouteObject[] => {
-    let routeObj: RouteObject[] = [
-        {
-            path: "/",
-            element: <Root />,
-            errorElement: <ErrorPage />,
-            children: [],
-        },
-    ];
-
-    routes.map((r) => {
-        routeObj[0].children?.push({
-            path: r.path,
-            element: r.element,
-        });
-    });
-
-    return routeObj;
-};
-
-const router = createBrowserRouter(getRouteObject());
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: views.map((view) => ({
+            path: view.path,
+            element: view.element,
+        })),
+    },
+]);
 
 export default router;
