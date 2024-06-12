@@ -3,7 +3,7 @@ const AboutMe = () => {
         <div>
             <h1 className="mb-10 font-bold text-6xl">About Me</h1>
             <p>
-                Coming soon...
+                Who am I...? 
             </p>
         </div>
     );

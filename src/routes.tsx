@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import AboutMe from "./views/AboutMe";
 import Root from "./Root";
-import Work from "./views/Work";
+import Experience from "./views/Experience";
 import Home from "./views/Home";
 import Education from "./views/Education";
 import Projects from "./views/Projects";
@@ -23,7 +23,7 @@ export const views = [
     {
         title: "Experience",
         path: "/experience",
-        element: <Work />,
+        element: <Experience />,
         sidebar: true,
     },
     {

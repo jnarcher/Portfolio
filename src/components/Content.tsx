@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Content = () => {
     return (
-        <div className="px-3 w-[700px]">
+        <div className="border-neutral-700 px-3 pl-10 border-l w-[700px]">
             <Outlet />
         </div>
     )

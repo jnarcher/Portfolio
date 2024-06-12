@@ -10,7 +10,7 @@ import { HiDocumentText } from "react-icons/hi";
 const Sidebar = () => {
     const nav = useNavigate();
     return (
-        <div className="top-[2rem] sticky flex flex-col flex-grow justify-between px-5 w-72 h-full">
+        <div className="flex flex-col justify-between px-5 h-full max-h-[1000px]">
             <div>
                 <button
                     onClick={() => nav("/")}

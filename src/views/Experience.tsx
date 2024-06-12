@@ -1,4 +1,4 @@
-const Work = () => {
+const Experience = () => {
     return (
         <div>
             <h1 className="mb-10 font-bold text-6xl">Work</h1>
@@ -9,4 +9,4 @@ const Work = () => {
     );
 };
 
-export default Work;
+export default Experience;
