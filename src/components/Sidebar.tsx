@@ -1,13 +1,18 @@
 import { FiLink } from "react-icons/fi";
 import routes from "../routes";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
 
 const Sidebar = () => {
     return (
         <div className="flex flex-col justify-between px-5 w-72">
             <div>
-                <h1 className="font-bold text-4xl">Jalen Archer</h1>
-                <h4 className="opacity-50 italic">Full Stack Developer</h4>
+                <h1 className="mb-1 font-bold text-4xl">Jalen Archer</h1>
+                <h4 className="opacity-50 mb-5 italic">Full Stack Developer</h4>
+                <h4 className="flex items-center gap-3">
+                    <IoLocationSharp />
+                    <span>San Francisco, CA</span>
+                </h4>
                 <div className="flex flex-col gap-2 mt-10">
                     {routes.map((r, key) => (
                         <NavLink key={key} title={r.title} />
