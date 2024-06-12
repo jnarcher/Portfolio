@@ -25,7 +25,7 @@ const Sidebar = () => {
                 </h4>
                 <div className="flex flex-col gap-1">
                     {routes.map((r, key) =>
-                        r.visible ? (
+                        r.sidebar ? (
                             <NavLink key={key} title={r.title} path={r.path} />
                         ) : null
                     )}
