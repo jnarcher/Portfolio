@@ -1,49 +1,76 @@
 import { FiLink } from "react-icons/fi";
-import routes from "../routes";
+import { routes } from "../routes";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import { useLocation, useNavigate } from "react-router-dom";
+import { BsDot } from "react-icons/bs";
 
 const Sidebar = () => {
+    const nav = useNavigate();
     return (
         <div className="flex flex-col justify-between px-5 w-72">
             <div>
-                <h1 className="mb-1 font-bold text-4xl">Jalen Archer</h1>
+                <button
+                    onClick={() => nav("/")}
+                    className="mb-1 font-bold text-4xl"
+                >
+                    Jalen Archer
+                </button>
                 <h4 className="opacity-50 mb-5 italic">Full Stack Developer</h4>
-                <h4 className="flex items-center gap-3">
+                <h4 className="flex items-center gap-3 mb-5">
                     <IoLocationSharp />
                     <span>San Francisco, CA</span>
                 </h4>
-                <div className="flex flex-col gap-2 mt-10">
-                    {routes.map((r, key) => (
-                        <NavLink key={key} title={r.title} />
-                    ))}
+                <div className="flex flex-col gap-1">
+                    {routes.map((r, key) =>
+                        r.visible ? (
+                            <NavLink key={key} title={r.title} path={r.path} />
+                        ) : null
+                    )}
                 </div>
             </div>
             <div className="flex justify-around">
                 <div>
-                    <a href="https://github.com/jnarcher" target="_blank" className="flex items-center gap-3 hover:text-white transition-colors">
+                    <a
+                        href="https://github.com/jnarcher"
+                        target="_blank"
+                        className="flex items-center gap-3 hover:bg-neutral-800 px-3 py-1 rounded-md hover:text-white transition-colors"
+                    >
                         <FaGithub />
                         <span className="text-lg">Github</span>
                     </a>
                 </div>
                 <div>
-                    <a href="https://www.linkedin.com/in/jalennarcher/" target="_blank" className="flex items-center gap-3 hover:text-white transition-colors">
+                    <a
+                        href="https://www.linkedin.com/in/jalennarcher/"
+                        target="_blank"
+                        className="flex items-center gap-3 hover:bg-neutral-800 px-3 py-1 rounded-md hover:text-white transition-colors"
+                    >
                         <FaLinkedin />
                         <span className="text-lg">LinkedIn</span>
                     </a>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-const NavLink = ({ title } : { title: string }) => {
+const NavLink = ({ title, path }: { title: string; path: string }) => {
+    const nav = useNavigate();
+    const location = useLocation();
+
     return (
-        <button className="flex items-center gap-3 hover:text-white transition-colors">
-            <FiLink />
-            <span className="text-lg">{title}</span>
+        <button
+            onClick={() => nav(path)}
+            className="relative flex justify-between items-center hover:bg-neutral-800 px-3 py-1 rounded-md hover:text-white transition-colors"
+        >
+            <div className="flex items-center gap-3">
+                <FiLink />
+                <span className="text-lg">{title}</span>
+            </div>
+            {location.pathname === path && <BsDot />}
         </button>
-    )
-}
+    );
+};
 
 export default Sidebar;
