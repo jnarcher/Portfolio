@@ -1,4 +1,4 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import AboutMe from "./views/AboutMe";
 import Root from "./Root";
@@ -7,7 +7,7 @@ import Home from "./views/Home";
 import Education from "./views/Education";
 import Projects from "./views/Projects";
 
-export const routes = [
+export const views = [
     {
         title: "Home",
         path: "/",
@@ -40,26 +40,16 @@ export const routes = [
     },
 ];
 
-const getRouteObjects = (): RouteObject[] => {
-    let routeObj: RouteObject[] = [
-        {
-            path: "/",
-            element: <Root />,
-            errorElement: <ErrorPage />,
-            children: [],
-        },
-    ];
-
-    routes.map((r) => {
-        routeObj[0].children?.push({
-            path: r.path,
-            element: r.element,
-        });
-    });
-
-    return routeObj;
-};
-
-const router = createBrowserRouter(getRouteObjects());
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: views.map((view) => ({
+            path: view.path,
+            element: view.element,
+        })),
+    },
+]);
 
 export default router;
