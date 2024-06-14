@@ -1,5 +1,18 @@
 const projects: Project[] = [
     {
+        title: "Auth Demo",
+        description: "An authentication client and server using the JWT authentication protocol. Frontend using React, with backend written (almost) entirely using the go standard library.",
+        imgs: ["https://github.com/jnarcher/auth-demo/blob/main/github/screenshot.png?raw=true"],
+        tags: ["Go", "React", "Typescript", "SQL"],
+        src: "https://github.com/jnarcher/auth-demo",
+    },
+    {
+        title: "Bitoard Chess Engine",
+        description: "A chess engine using the \"bitboard\" board representation. Utilizes similar generation methods as the well-known engine Stockfish",
+        tags: ["Rust"],
+        src: "https://github.com/jnarcher/linkus-chess",
+    },
+    {
         title: "Typer",
         description: "A simple typing test using React. Modeled after the popular type test site monkeytype.com",
         imgs: ["https://github.com/jnarcher/typer/blob/main/github/screenshot.png?raw=true"],
@@ -17,14 +30,8 @@ const projects: Project[] = [
         title: "Poke",
         description: "A poker tournament setup and management application. Meant to help make home tournaments go more smoothly, minimizing setup time so that you can get to the fun part.",
         imgs: ["https://github.com/jnarcher/poke/blob/main/github-images/timer-page.png?raw=true"],
-        tags: ["Typescript"],
+        tags: ["React", "Typescript", "SQL"],
         src: "https://github.com/jnarcher/poke",
-    },
-    {
-        title: "Bitoard Chess Engine",
-        description: "A chess engine using the \"bitboard\" board representation. Utilizes similar generation methods as the well-known engine Stockfish",
-        tags: ["Rust"],
-        src: "https://github.com/jnarcher/linkus-chess",
     },
     {
         title: "Monkeylang",
